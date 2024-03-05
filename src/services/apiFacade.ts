@@ -23,7 +23,9 @@ interface Info {
 }
 
 let categories: Array<string> = [];
-let recipes: Array<Recipe> = [];
+const recipes: Array<Recipe> = [];
+
+console.log(recipes);
 
 async function getCategories(): Promise<Array<string>> {
   if (categories.length > 0) return [...categories];
