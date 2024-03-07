@@ -27,6 +27,8 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
       localStorage.setItem("username",user.username)
       localStorage.setItem("roles",JSON.stringify(user.roles))
       localStorage.setItem("token",user.token)
+      console.log(user.token, user.username, user.roles);
+      
       return user;
     });
   };

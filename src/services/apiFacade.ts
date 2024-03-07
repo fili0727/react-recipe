@@ -23,6 +23,7 @@ interface Info {
 }
 
 interface Category {
+  id: number | null;
   name: string;
 
 }
@@ -40,7 +41,7 @@ async function getCategories(): Promise<Array<string>> {
   return categories;
 }
 async function addCategory(newCategory: Category): Promise<Array<string>> {
-  const options = makeOptions("POST", newCategory);
+  const options = makeOptions("POST", newCategory, true);
   return fetch(CATEGORIES_URL, options).then(handleHttpErrors);
 }
 async function getRecipes(category: string | null): Promise<Array<Recipe>> {
@@ -55,12 +56,12 @@ async function getRecipe(id: number): Promise<Recipe> {
 }
 async function addRecipe(newRecipe: Recipe): Promise<Recipe> {
   const method = newRecipe.id ? "PUT" : "POST";
-  const options = makeOptions(method, newRecipe);
+  const options = makeOptions(method, newRecipe, true);
   const URL = newRecipe.id ? `${RECIPE_URL}/${newRecipe.id}` : RECIPE_URL;
   return fetch(URL, options).then(handleHttpErrors);
 }
 async function deleteRecipe(id: number): Promise<Recipe> {
-  const options = makeOptions("DELETE", null);
+  const options = makeOptions("DELETE", null, true);
   return fetch(`${RECIPE_URL}/${id}`, options).then(handleHttpErrors);
 }
 
