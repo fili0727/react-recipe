@@ -19,7 +19,7 @@ export default function CategoryForm() {
         setFormData((prevFormData) => ({
             ...prevFormData,
             //  @ts-ignore
-            [name]: value,ª
+            [name]: value,
         }));
     };
     const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
