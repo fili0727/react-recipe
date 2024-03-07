@@ -18,7 +18,6 @@ export default function CategoryForm() {
         // @ts-ignore
         setFormData((prevFormData) => ({
             ...prevFormData,
-            //  @ts-ignore
             [name]: value,
         }));
     };
@@ -33,10 +32,7 @@ export default function CategoryForm() {
         <>
         <h2>Categories Add/Edit/Delete</h2>
         <form id="categoryForm">
-            <div className="form-group">
-                <label htmlFor="id">ID:</label>
-                <input type="text" id="name" name="name" disabled value={formData.id || ""} />
-            </div>
+        
             <div className="form-group">
                 <label htmlFor="name">Name:</label>
                 <input
